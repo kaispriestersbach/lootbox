@@ -1,5 +1,13 @@
 .cs2-roller {
   position: relative;
+  gap: 1.5rem;
+  /* padding: 1.5rem;  -- entfernt, unten steht die gezielte Variante */
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(160deg, rgba(18, 26, 44, 0.96), rgba(10, 16, 28, 0.92));
+  box-shadow:
+    0 32px 58px -40px rgba(2, 4, 12, 0.88),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -8,182 +16,288 @@
 
 .cs2-roller__track {
   position: relative;
-  width: min(1020px, 100%);
-  height: 265px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, rgba(7, 10, 18, 0.92), rgba(4, 6, 12, 0.98));
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(120deg, rgba(25, 36, 60, 0.92), rgba(14, 20, 36, 0.88)),
+    radial-gradient(140% 110% at 15% 50%, rgba(87, 129, 255, 0.12), transparent 65%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 20px 38px -28px rgba(0, 0, 0, 0.9),
+    0 22px 40px -34px rgba(5, 9, 20, 0.8);
 }
 
 .cs2-roller__track::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 215, 141, 0) 0%, rgba(255, 215, 141, 0.22) 50%, rgba(255, 215, 141, 0) 100%);
-  opacity: 0;
-  transition: opacity 200ms ease;
+  border-radius: inherit;
   pointer-events: none;
-}
-
-.cs2-roller__track[data-active='true']::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
   opacity: 0.6;
 }
 
-.cs2-roller__spool {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 420px;
-  will-change: transform;
-}
-
-.cs2-roller__card {
+.cs2-roller__window {
   position: relative;
-  width: 220px;
-  height: 200px;
-  border-radius: 20px;
-  border: 2px solid color-mix(in srgb, var(--card-border) 70%, rgba(255, 255, 255, 0.1));
-  background: linear-gradient(135deg, var(--card-primary), color-mix(in srgb, var(--card-secondary) 70%, #000 30%));
-  padding: 1.1rem 1.15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: var(--card-text, #f7f8ff);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.32);
   overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(9, 12, 20, 0.6);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 16px 30px -26px rgba(0, 0, 0, 0.85);
 }
 
-.cs2-roller__card::before {
-  content: '';
+.cs2-roller__items {
+  display: flex;
+  gap: 0.65rem;
+  padding: 1.1rem 1.35rem;
+  min-width: max-content;
+}
+
+.cs2-roller__indicator {
   position: absolute;
-  inset: -25%;
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 55%);
-  opacity: 0.4;
-  mix-blend-mode: screen;
-}
-
-.cs2-roller__card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--card-glow, rgba(255, 255, 255, 0.16));
-  opacity: 0.25;
-  mix-blend-mode: screen;
-}
-
-.cs2-roller__card.pattern-stripes::after,
-.cs2-roller__card.pattern-grid::after,
-.cs2-roller__card.pattern-pulse::after,
-.cs2-roller__card.pattern-spark::after,
-.cs2-roller__card.pattern-carbon::after,
-.cs2-roller__card.pattern-plasma::after {
-  background-size: 280%;
-}
-
-.cs2-roller__card.pattern-stripes::after {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(255, 255, 255, 0.4) 0px,
-    rgba(255, 255, 255, 0.4) 14px,
-    transparent 14px,
-    transparent 36px
-  );
-}
-
-.cs2-roller__card.pattern-grid::after {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-
-.cs2-roller__card.pattern-pulse::after {
-  background-image: radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.5) 0%, transparent 55%);
-}
-
-.cs2-roller__card.pattern-spark::after {
-  background-image: radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.55) 0, transparent 45%),
-    radial-gradient(circle at 85% 35%, rgba(255, 255, 255, 0.55) 0, transparent 60%),
-    radial-gradient(circle at 35% 80%, rgba(255, 255, 255, 0.4) 0, transparent 65%);
-}
-
-.cs2-roller__card.pattern-carbon::after {
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0px, rgba(255, 255, 255, 0.05) 14px);
-  background-size: 18px 18px;
-}
-
-.cs2-roller__card.pattern-plasma::after {
-  background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65) 0, transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.55) 0, transparent 60%);
-}
-
-.cs2-roller__card-rarity {
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  opacity: 0.75;
-}
-
-.cs2-roller__card-name {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-top: auto;
-}
-
-.cs2-roller__card-meta {
-  font-size: 0.7rem;
-  opacity: 0.8;
-  margin-top: 0.35rem;
-}
-
-.cs2-roller__card--result {
-  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.35), 0 0 40px rgba(255, 215, 141, 0.45);
-}
-
-.cs2-roller__highlight {
-  position: absolute;
-  top: 32px;
-  bottom: 36px;
+  top: 0;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
-  border-radius: 18px;
-  border: 2px solid rgba(255, 215, 141, 0.75);
-  background: linear-gradient(180deg, rgba(255, 215, 141, 0.22) 0%, rgba(255, 215, 141, 0.08) 50%, rgba(255, 215, 141, 0) 100%);
-  box-shadow: 0 0 46px rgba(255, 215, 141, 0.35);
-  pointer-events: none;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.45));
+  box-shadow:
+    0 0 14px rgba(255, 246, 171, 0.45),
+    0 0 2px rgba(255, 255, 255, 0.85);
 }
 
-.cs2-roller__pointer {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+.cs2-roller__item-card {
+  flex: 0 0 120px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  pointer-events: none;
+  gap: 0.45rem;
+  padding: 0.85rem;
+  border-radius: 14px;
+  background: linear-gradient(165deg, rgba(30, 43, 72, 0.88), rgba(20, 28, 48, 0.85));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 18px -12px rgba(5, 9, 20, 0.8);
+  color: inherit;
+  text-align: center;
 }
 
-.cs2-roller__pointer span:first-of-type {
-  width: 0;
-  height: 0;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  border-bottom: 20px solid rgba(255, 215, 141, 0.95);
-  filter: drop-shadow(0 0 12px rgba(255, 215, 141, 0.55));
+.cs2-roller__item-name {
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
-.cs2-roller__pointer span:last-of-type {
-  width: 62px;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(255, 215, 141, 0), rgba(255, 215, 141, 0.95), rgba(255, 215, 141, 0));
+.cs2-roller__item-rarity {
+  font-size: 0.75rem;
+  color: rgba(230, 236, 255, 0.72);
 }
 
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .cs2-roller {
+    padding: 1.25rem;
+  }
+
+  .cs2-roller__items {
+    padding: 0.9rem 1rem;
+  }
+
+  /* Das hier war fälschlich unter __items gemerged: gehört zum Track */
+  .cs2-roller__track {
+    width: min(1020px, 100%);
+    height: 265px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(7, 10, 18, 0.92), rgba(4, 6, 12, 0.98));
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Der „active“-Scan-Effekt nur auf Mobile, um das globale ::before nicht zu überschreiben */
+  .cs2-roller__track::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 215, 141, 0) 0%,
+      rgba(255, 215, 141, 0.22) 50%,
+      rgba(255, 215, 141, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+
+  .cs2-roller__track[data-active='true']::after {
+    opacity: 0.6;
+  }
+
+  .cs2-roller__spool {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 420px;
+    will-change: transform;
+  }
+
+  .cs2-roller__card {
+    position: relative;
+    width: 220px;
+    height: 200px;
+    border-radius: 20px;
+    border: 2px solid color-mix(in srgb, var(--card-border, #8791a5) 70%, rgba(255, 255, 255, 0.1));
+    background: linear-gradient(
+      135deg,
+      var(--card-primary, #2a3a62),
+      color-mix(in srgb, var(--card-secondary, #1a233a) 70%, #000 30%)
+    );
+    padding: 1.1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--card-text, #f7f8ff);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.32);
+    overflow: hidden;
+  }
+
+  .cs2-roller__card::before {
+    content: '';
+    position: absolute;
+    inset: -25%;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 55%);
+    opacity: 0.4;
+    mix-blend-mode: screen;
+  }
+
+  .cs2-roller__card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--card-glow, rgba(255, 255, 255, 0.16));
+    opacity: 0.25;
+    mix-blend-mode: screen;
+  }
+
+  .cs2-roller__card.pattern-stripes::after,
+  .cs2-roller__card.pattern-grid::after,
+  .cs2-roller__card.pattern-pulse::after,
+  .cs2-roller__card.pattern-spark::after,
+  .cs2-roller__card.pattern-carbon::after,
+  .cs2-roller__card.pattern-plasma::after {
+    background-size: 280%;
+  }
+
+  .cs2-roller__card.pattern-stripes::after {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.4) 0px,
+      rgba(255, 255, 255, 0.4) 14px,
+      transparent 14px,
+      transparent 36px
+    );
+  }
+
+  .cs2-roller__card.pattern-grid::after {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .cs2-roller__card.pattern-pulse::after {
+    background-image: radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.5) 0%, transparent 55%);
+  }
+
+  .cs2-roller__card.pattern-spark::after {
+    background-image:
+      radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.55) 0, transparent 45%),
+      radial-gradient(circle at 85% 35%, rgba(255, 255, 255, 0.55) 0, transparent 60%),
+      radial-gradient(circle at 35% 80%, rgba(255, 255, 255, 0.4) 0, transparent 65%);
+  }
+
+  .cs2-roller__card.pattern-carbon::after {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0px, rgba(255, 255, 255, 0.05) 14px);
+    background-size: 18px 18px;
+  }
+
+  .cs2-roller__card.pattern-plasma::after {
+    background-image:
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65) 0, transparent 40%),
+      radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.55) 0, transparent 60%);
+  }
+
+  .cs2-roller__card-rarity {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    opacity: 0.75;
+  }
+
+  .cs2-roller__card-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: auto;
+  }
+
+  .cs2-roller__card-meta {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin-top: 0.35rem;
+  }
+
+  .cs2-roller__card--result {
+    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.35), 0 0 40px rgba(255, 215, 141, 0.45);
+  }
+
+  .cs2-roller__highlight {
+    position: absolute;
+    top: 32px;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    border-radius: 18px;
+    border: 2px solid rgba(255, 215, 141, 0.75);
+    background: linear-gradient(180deg, rgba(255, 215, 141, 0.22) 0%, rgba(255, 215, 141, 0.08) 50%, rgba(255, 215, 141, 0) 100%);
+    box-shadow: 0 0 46px rgba(255, 215, 141, 0.35);
+    pointer-events: none;
+  }
+
+  .cs2-roller__pointer {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    pointer-events: none;
+  }
+
+  .cs2-roller__pointer span:first-of-type {
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-bottom: 20px solid rgba(255, 215, 141, 0.95);
+    filter: drop-shadow(0 0 12px rgba(255, 215, 141, 0.55));
+  }
+
+  .cs2-roller__pointer span:last-of-type {
+    width: 62px;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(255, 215, 141, 0), rgba(255, 215, 141, 0.95), rgba(255, 215, 141, 0));
+  }
+}
+
+/* ---------- Small screens (<= 720px) ---------- */
 @media (max-width: 720px) {
   .cs2-roller__track {
     height: 220px;
