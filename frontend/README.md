@@ -2,7 +2,7 @@
 
 A high-fidelity, streamer-ready lootbox opening simulator that recreates the suspense and spectacle from **Counter-Strike 2** and **PUBG: Battlegrounds**. Re-run authentic roulettes with true weighted randomness, or script a dramatic reveal pulled straight from the in-game library.
 
-https://github.com/your-org/lootbox
+https://github.com/kaispriestersbach/lootbox/
 
 ## ✨ Feature Highlights
 
