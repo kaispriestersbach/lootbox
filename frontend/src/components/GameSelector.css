@@ -92,6 +92,58 @@
   color: rgba(233, 240, 255, 0.72);
 }
 
+/* --- Chip-Styles aus "main" integriert --- */
+
+.game-chip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 18, 28, 0.75);
+  color: rgba(235, 240, 255, 0.76);
+  font-family: 'Rajdhani', 'Burbank Big Condensed', 'Roboto Condensed', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, color 220ms ease;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+.game-chip:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.game-chip:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(255, 214, 141, 0.45);
+  color: #fff7db;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.game-chip--active {
+  border-color: rgba(255, 214, 141, 0.85);
+  color: #fff0c4;
+  box-shadow: 0 0 26px rgba(255, 214, 141, 0.4);
+  background: linear-gradient(135deg, rgba(255, 214, 141, 0.18), rgba(15, 18, 28, 0.85));
+}
+
+.game-chip__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.game-chip__tagline {
+  font-size: 0.65rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+/* --- Responsive --- */
+
 @media (max-width: 720px) {
   .game-selector {
     padding: 1.25rem;
@@ -100,5 +152,11 @@
 
   .game-selector__options {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .game-chip {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 }
