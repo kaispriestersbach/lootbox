@@ -120,8 +120,8 @@ export function PUBGCrate({ pool, result, triggerKey, isAnimating, onComplete }:
           <div className="pubg-crate__strap pubg-crate__strap--right" />
           <motion.div className="pubg-crate__glow" animate={glowControls} />
             <motion.div className="pubg-crate__sparks" animate={sparksControls}>
-              {stagedItems.map((item) => (
-                <span key={item.id} />
+              {stagedItems.map((item, index) => (
+                <span key={`${item.id}-${index}`} data-spark-index={index} />
               ))}
             </motion.div>
             {result && (
