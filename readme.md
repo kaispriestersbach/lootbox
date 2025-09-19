@@ -1,37 +1,23 @@
 # Lootbox Animation Simulator
 
-A **sophisticated lootbox animation simulator** for different games, starting with **Counter-Strike 2 (CS2)** and **PUBG**.
+A sophisticated lootbox animation simulator that mirrors the high-gloss openings from **Counter-Strike 2** and **PUBG: Battlegrounds**. Spin up perfectly weighted RNG sequences or orchestrate scripted reveals for stream theatrics — all without spending a cent.
 
-## 🎮 About the Project
+## 📦 Repository Layout
 
-This project aims to recreate the thrill of opening loot boxes in popular online games.  
-The simulator mimics the **visuals and animations** of real loot box openings, including the anticipation and randomness of obtaining virtual items.
+- `frontend/` – React + Vite single-page app that houses the simulator, animation timelines, and loot tables.
 
-### Key Features
-- **Authentic Animations**: Visually identical to original loot box opening sequences.  
-- **Randomized Draws**: Simulate the real experience of getting random skins, items, and rewards.  
-- **Item Library**: Browse all possible items in advance and pre-select one to be "drawn."  
-- **Streamer-Friendly**: Use the simulator in live streams to entertain your audience or prank your friends.  
-- **Free & Safe**: Enjoy the fun of loot box openings without spending real money.
+## 🚀 Quick start
 
-## 🚀 Roadmap
-- [ ] Implement CS2 lootbox opening animation  
-- [ ] Add PUBG lootbox system  
-- [ ] Expand to other popular games (TBD)  
-- [ ] Build item library and customization options  
-- [ ] Provide easy integration for stream overlays  
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## 💡 Purpose
+Open the provided URL (default `http://localhost:5173`) to begin. Switch games, choose between *True Random* and *Scripted Reveal*, and trigger fully animated openings.
 
-The purpose of this simulator is twofold:
-1. **Entertainment without cost**: Open loot boxes just for fun, receiving random items like in the real games.  
-2. **Pre-determined reveals**: Select an item from the library and make it appear in the animation, e.g., for **live stream entertainment** or to **trick your friends**.  
+Refer to [`frontend/README.md`](frontend/README.md) for a deeper tour, production build steps, and authoring guidance for new loot tables.
 
-## 🛠️ Tech Stack (planned)
-- Frontend: Web-based (React, Tailwind, Framer Motion)  
-- Backend: Node.js / Express (for item libraries and logic)  
-- Future: Possible desktop version with Electron  
+## ⚖️ Disclaimer
 
-## 📌 Disclaimer
-This project is **not affiliated with or endorsed by Valve, Krafton, or any other game publishers**.  
-All names, items, and animations are used **for educational and entertainment purposes only**.
+This project is a fan-made experience intended for entertainment and educational use. It is not affiliated with Valve, Krafton, or any other rights holders. All trademarks referenced belong to their respective owners.
