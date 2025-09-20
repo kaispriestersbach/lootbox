@@ -60,9 +60,9 @@
 
 .pubg-crate__door {
   position: absolute;
-  left: 50%;
+  left: 5%;
+  right: 5%;
   bottom: 0;
-  width: 90%;
   height: 68px;
   transform-origin: top center;
   transform-style: preserve-3d;
@@ -105,7 +105,10 @@
 
 .pubg-crate__sparks {
   position: absolute;
-  inset: -20% -5% auto -5%;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
   height: 200px;
   pointer-events: none;
   display: flex;
